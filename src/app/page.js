@@ -7,12 +7,18 @@ export default function RegisFormPage() {
   const [lname, setLname] = useState("");
   const [lnameError, setLnameError] = useState(false);
   const [plan, setPlan] = useState("");
-  const [planError, setPlanError] = useState(false);
+  const [planError,setPlanError] = useState(false);
   const [gender, setGender] = useState(null);
+  const [genderError,setGenderError] = useState(false);
   const [buyBottle, setBuyBottle] = useState(false);
   const [buyShoes, setBuyShoes] = useState(false);
   const [buyCap, setBuyCap] = useState(false);
-  const [agree, setAgree] = useState(false);
+  const [isUserAgree, setIsUserAgree] = useState(false);
+  const [agree,setAgree] = useState(false);
+
+  const isUserAgreedOnChange = (event) => {
+    setIsUserAgree(event.target.checked);
+  }
 
   const inputFnameOnChange = (event) => {
     setFnameError(false);
@@ -30,10 +36,12 @@ export default function RegisFormPage() {
   };
 
   const radioGenderMaleOnChange = () => {
+    setGenderError(false);
     setGender("male");
   };
 
   const radioGenderFemaleOnChange = () => {
+    setGenderError(false);
     setGender("female");
   };
 
@@ -47,10 +55,6 @@ export default function RegisFormPage() {
 
   const cbBuyCapOnChange = (event) => {
     setBuyCap(event.target.checked);
-  };
-
-  const cbCheckAgree = (event) => {
-    setAgree(event.target.checked);
   };
 
   function computeTotalPayment() {
@@ -94,7 +98,7 @@ export default function RegisFormPage() {
 
     if (fnameOk && lnameOk && planOk && genderOk) {
       alert(
-        `Registration complete. Please pay money for ${buyBottle && buyCap && buyShoes ? (computeTotalPayment() * 80) / 100 : computeTotalPayment()} THB.`
+        `Registration complete. Please pay money for ${buyBottle && buyCap && buyShoes ? (computeTotalPayment() * 0.8) : computeTotalPayment()} THB.`
       );
     }
   };
