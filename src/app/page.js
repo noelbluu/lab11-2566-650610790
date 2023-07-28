@@ -71,7 +71,7 @@ export default function RegisFormPage() {
     let fnameOk = true;
     let lnameOk = true;
     let planOk = true;
-    let genderOk = true;
+    let genderOk = false;
 
     if (fname === "") {
       fnameOk = false;
@@ -88,7 +88,7 @@ export default function RegisFormPage() {
       setPlanError(true);
     }
 
-    if (gender == null) {
+    if (gender != null) {
       setGender(false);
     }
 
