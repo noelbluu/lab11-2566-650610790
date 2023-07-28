@@ -71,6 +71,7 @@ export default function RegisFormPage() {
     let fnameOk = true;
     let lnameOk = true;
     let planOk = true;
+    let genderOk = true;
 
     if (fname === "") {
       fnameOk = false;
@@ -91,7 +92,7 @@ export default function RegisFormPage() {
       setGender(false);
     }
 
-    if (fnameOk) {
+    if (fnameOk && lnameOk && planOk && genderOk) {
       alert(
         `Registration complete. Please pay money for ${buyBottle && buyCap && buyShoes ? (computeTotalPayment() * 80) / 100 : computeTotalPayment()} THB.`
       );
